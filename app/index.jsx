@@ -1,28 +1,15 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { StatusBar } from "expo-status-bar";
 import Navbar from "../components/Navbar";
 import colors from "../constants/Colors";
 import ValueComponent from "../components/ValueComponent";
 import * as Haptics from "expo-haptics"; // Import Haptics
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useFocusEffect } from "@react-navigation/native"; // Import useFocusEffect
+
 const Index = () => {
   const [value, setValue] = useState(0);
-  // Fetch count from AsyncStorage when the app loads
-  useEffect(() => {
-    const getCountFromStorage = async () => {
-      try {
-        const storedCount = await AsyncStorage.getItem("countValue");
-        if (storedCount !== null) {
-          setValue(parseInt(storedCount));
-        }
-      } catch (error) {
-        console.log("Error fetching count from AsyncStorage", error);
-      }
-    };
-
-    getCountFromStorage();
-  }, []);
 
   // Update the count and store it in AsyncStorage
   const updateCount = async (newCount) => {
@@ -33,6 +20,27 @@ const Index = () => {
       console.log("Error saving count to AsyncStorage", error);
     }
   };
+
+  // Fetch value from AsyncStorage
+  const getCountFromStorage = async () => {
+    try {
+      const storedCount = await AsyncStorage.getItem("countValue");
+      if (storedCount !== null) {
+        const value = parseInt(storedCount);
+        setValue(value);
+      }
+    } catch (error) {
+      console.log("Error fetching count from AsyncStorage", error);
+      return 0;
+    }
+  };
+
+  // Fetch the count value when the component mounts and when the screen gains focus
+  useFocusEffect(
+    useCallback(() => {
+      getCountFromStorage();
+    }, [])
+  );
 
   const handlePress = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Rigid); // Trigger vibration

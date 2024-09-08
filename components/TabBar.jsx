@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import Colors from "../constants/Colors";
 import AntDesign from "@expo/vector-icons/AntDesign";
-
+import Feather from "@expo/vector-icons/Feather";
 const TabBar = ({ state, descriptors, navigation }) => {
   const icons = {
     index: (props) => (
@@ -11,8 +11,8 @@ const TabBar = ({ state, descriptors, navigation }) => {
     setting: (props) => (
       <AntDesign name="setting" size={26} color={Colors.lightGray} {...props} />
     ),
-    history: (props) => (
-      <AntDesign name="home" size={26} color={Colors.lightGray} {...props} />
+    about: (props) => (
+      <Feather name="info" size={26} color={Colors.lightGray} {...props} />
     ),
   };
 
