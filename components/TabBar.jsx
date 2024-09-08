@@ -11,6 +11,9 @@ const TabBar = ({ state, descriptors, navigation }) => {
     setting: (props) => (
       <AntDesign name="setting" size={26} color={Colors.lightGray} {...props} />
     ),
+    history: (props) => (
+      <AntDesign name="home" size={26} color={Colors.lightGray} {...props} />
+    ),
   };
 
   return (
@@ -59,14 +62,14 @@ const TabBar = ({ state, descriptors, navigation }) => {
             style={styles.tabItem}
           >
             {icons[route.name]({
-              color: isFocused ? Colors.white : "#001219",
+              color: isFocused ? Colors.primary : Colors.white,
             })}
             <Text
               style={{
-                color: isFocused ? Colors.white : Colors.lightGray,
+                color: isFocused ? Colors.primary : Colors.white,
                 fontFamily: "Poppins-SemiBold",
                 lineHeight: 20,
-                fontSize: 11,
+                fontSize: 12,
                 display: isFocused ? "flex" : "none",
               }}
             >
@@ -89,7 +92,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.background,
     paddingVertical: 15,
     borderTopColor: Colors.primary,
     borderTopWidth: 1,

@@ -16,12 +16,12 @@
 // };
 
 const colors = {
-  primary: "#ef233c", // Blue
+  primary: "#fca311", // Blue
   secondary: "#2ecc71", // Green
   accent: "#e74c3c", // Red
-  background: "#f4f4f4", // Light grey background
+  background: "#14213d", // Light grey background
   white: "#edf2f4", // White
-  black: "#000000", // Black
+  black: "#161a1d", // Black
   gray: "#7f8c8d", // Grey
   lightGray: "#bdc3c7", // Light Grey
   darkGray: "#2c3e50", // Dark Grey

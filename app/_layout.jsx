@@ -23,6 +23,7 @@ const _layout = () => {
     >
       <Tabs.Screen name="index" options={{ title: "Home" }} />
       <Tabs.Screen name="setting" options={{ title: "Settings" }} />
+      <Tabs.Screen name="history" options={{ title: "History" }} />
     </Tabs>
   );
 };
