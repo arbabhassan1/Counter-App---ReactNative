@@ -7,12 +7,8 @@ import {
   ActivityIndicator,
 } from "react-native";
 import colors from "../constants/Colors";
-import { useEffect, useState } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ListComponent = ({ data }) => {
-  console.log(data);
-
   // Render each item in the list
   const renderItem = React.useCallback(
     ({ item }) => (

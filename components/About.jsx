@@ -13,6 +13,7 @@ const About = () => {
   const handlePress = () => {
     Linking.openURL("https://arbabhassan.bio.link/");
   };
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
@@ -31,6 +32,12 @@ const About = () => {
         <Text style={styles.label}>Version:</Text>
         <Text style={styles.text}>1.0.0</Text>
       </View>
+
+      {/* Made in USA section */}
+      <View style={styles.madeInUSAContainer}>
+        <Text style={styles.madeInUSAText}>Innovated in the Pakistan 🇵🇰</Text>
+      </View>
+
       <View style={styles.footerContainer}>
         <Text style={styles.copyright}>
           &copy; {new Date().getFullYear()} Innovisoft Technologies. All rights
@@ -49,8 +56,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: colors.black,
-    // justifyContent: "center", // Center content vertically
-
     paddingTop: 100,
     alignItems: "center", // Center content horizontally
   },
@@ -110,10 +115,14 @@ const styles = StyleSheet.create({
     fontFamily: "Poppins-SemiBold",
     color: colors.white,
   },
-  copyright: {
-    fontSize: 14,
-    color: "#666",
-    marginTop: 10,
+  madeInUSAContainer: {
+    marginTop: 20,
+    alignItems: "center",
+  },
+  madeInUSAText: {
+    fontSize: 16,
+    fontFamily: "Poppins-SemiBold",
+    color: colors.white,
   },
 });
 

@@ -17,6 +17,7 @@
 
 const colors = {
   primary: "#fca311", // Blue
+  click: "#e38d02",
   secondary: "#2ecc71", // Green
   accent: "#e74c3c", // Red
   background: "#14213d", // Light grey background
